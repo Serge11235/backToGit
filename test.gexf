@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+  <graph defaultedgetype="undirected" mode="static">
+    <nodes>
+      <node id="a   c" label="a   c" />
+      <node id="b" label="b" />
+      <node id="j   k" label="j   k" />
+      <node id="a   e" label="a   e" />
+      <node id="j   k   l" label="j   k   l" />
+      <node id="a   b" label="a   b" />
+      <node id="a   c   e" label="a   c   e" />
+      <node id="a" label="a" />
+      <node id="d" label="d" />
+      <node id="f   g" label="f   g" />
+      <node id="a   b   c" label="a   b   c" />
+      <node id="a   e   j   k" label="a   e   j   k" />
+      <node id="c" label="c" />
+      <node id="d   e" label="d   e" />
+    </nodes>
+    <edges>
+      <edge id="0" source="a   c" target="a   b   c" />
+      <edge id="1" source="a   c" target="c" />
+      <edge id="2" source="a   c" target="a" />
+      <edge id="3" source="a   c" target="a   c   e" />
+      <edge id="4" source="b" target="a   b" />
+      <edge id="5" source="j   k" target="j   k   l" />
+      <edge id="6" source="j   k" target="a   e   j   k" />
+      <edge id="7" source="a   e" target="a   e   j   k" />
+      <edge id="8" source="a   e" target="a" />
+      <edge id="9" source="a   e" target="a   c   e" />
+      <edge id="10" source="a   b" target="a   b   c" />
+      <edge id="11" source="a   b" target="a" />
+      <edge id="12" source="d" target="d   e" />
+    </edges>
+  </graph>
+</gexf>
+
+import pygraphviz as pgv # pygraphviz should be available
+import matplotlib
+
+def layer_create_graph(words, bigrams, trigrams):
+    G = nx.DiGraph()
+    G.add_edge('a','aa')
+    G.add_edge('a','ab')
+    G.add_edge('a','bbc')
+    G.add_edge('b','ab')
+    G.add_edge('b','bb')
+    G.add_edge('c','bbc')
+    G.add_edge('bb','bba')
+    G.add_edge('bb','bbc')
+    A = nx.to_agraph(G)
+    one = A.add_subgraph(['a','b','c'],rank='same')
+    two = A.add_subgraph(['aa','ab','bb'],rank='same')
+    three = A.add_subgraph(['bba','bbc'],rank='same')
+    A.draw('example.png', prog='dot')
