@@ -1,8 +1,8 @@
 0-1 L_L 2 
 10
 21
-32
-43
+28 here I create conflict
+43 message goto confl 2
 54
 65 John Snow
 76 65 John Snow 2
