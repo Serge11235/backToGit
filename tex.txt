@@ -1,8 +1,15 @@
 0-1 L_L 2 
 10
 21
+<<<<<<< HEAD
 323 Conflicted area master message
 5 John Snow
+=======
+28 here I create conflict
+43 message goto confl 2
+54
+65 John Snow
+>>>>>>> gotoConflict
 76 65 John Snow 2
 87
 98
@@ -18,3 +25,9 @@
 1918
  
 3 comm
+<<<<<<< HEAD
+=======
+
+gotoConflict branch not conflicted area
+11235
+>>>>>>> gotoConflict
