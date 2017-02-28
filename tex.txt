@@ -20,3 +20,6 @@
 1918
  
 3 comm
+
+gotoConflict branch not conflicted area
+11235
