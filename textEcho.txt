@@ -1,1 +1,1 @@
-Test 0
+text0 \n Hello master
